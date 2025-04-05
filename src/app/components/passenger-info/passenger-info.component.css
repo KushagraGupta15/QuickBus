@@ -1,0 +1,195 @@
+/* Passenger Information Container */
+.passenger-info-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Heading */
+.passenger-info-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: linear-gradient(90deg, #ffffff, #747474);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/* Passenger Block */
+.passenger-block {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.passenger-block h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Labels */
+.passenger-info-container label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #bbb;
+}
+
+/* Input Fields */
+.passenger-info-container input,
+.passenger-info-container select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+  transition: 0.3s ease-in-out;
+}
+
+/* Placeholder Text */
+.passenger-info-container input::placeholder {
+  color: #bbb;
+}
+
+/* Input Focus */
+.passenger-info-container input:focus,
+.passenger-info-container select:focus {
+  border: 1px solid #d4d8d9;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons */
+.add-btn,
+.continue-btn,
+.remove-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Add Passenger Button */
+.add-btn {
+  background: rgb(45, 157, 45);
+  color: white;
+}
+
+.add-btn:hover {
+  background: linear-gradient(45deg, #168307, #28c314);
+  transform: scale(1.05);
+}
+
+/* Continue Button */
+.continue-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.continue-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Remove Passenger Button */
+.remove-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.remove-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Error Messages */
+small {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Label Styling */
+label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e0e0e0; /* Light grey text for visibility */
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Dropdown Styling */
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff; /* White text */
+  background: #444; /* Dark grey dropdown */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Hover Effect */
+select:hover {
+  background: #555; /* Slightly lighter grey */
+}
+
+/* Focused (Clicked) State */
+select:focus {
+  background: #666; /* Grey color when clicked */
+  color: #ffffff;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Dropdown Options */
+select option {
+  background: #444; /* Dark background */
+  color: #ffffff; /* White text */
+}
+
+/* Disabled Option */
+select option:disabled {
+  color: #aaa; /* Lighter grey */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .passenger-block {
+    padding: 10px;
+  }
+
+  .passenger-info-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .add-btn,
+  .continue-btn,
+  .remove-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

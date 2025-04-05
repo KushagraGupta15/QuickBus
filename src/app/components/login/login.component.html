@@ -1,0 +1,13 @@
+<div class="auth-container">
+  <h2>Login</h2>
+  <form #loginForm="ngForm" (ngSubmit)="login()">
+    <label>Email</label>
+    <input type="email" name="email" [(ngModel)]="email" required />
+    
+    <label>Password</label>
+    <input type="password" name="password" [(ngModel)]="password" required />
+    
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+  </form>
+  <p>Don't have an account? <a routerLink="/signup">Sign up</a></p>
+</div>

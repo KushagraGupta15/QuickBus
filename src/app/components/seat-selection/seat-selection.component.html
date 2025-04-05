@@ -1,0 +1,62 @@
+<!-- <div class="seat-selection-container">
+  <h2>Select Your Seats</h2> -->
+
+  <!-- Seat Layout -->
+  <!-- <div class="bus-layout">
+    <div *ngFor="let row of busSeats; let rowIndex = index" class="seat-row">
+      <div
+        *ngFor="let seat of row; let seatIndex = index"
+        [ngClass]="{
+          seat: !seat.aisle,
+          booked: seat.booked,
+          selected: seat.selected,
+          aisle: seat.aisle
+        }"
+        (click)="!seat.aisle && selectSeat(seat)"
+      >
+        {{ seat.aisle ? "|" : seat.seatNumber }}
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Selection Summary -->
+  <!-- <div class="summary">
+    <p>Selected Seats: {{ selectedSeats.length }}</p>
+    <p>Total Price: ${{ totalPrice }}</p>
+    <button
+      class="proceed-button"
+      [disabled]="selectedSeats.length === 0"
+      (click)="proceedToPassengerDetails()"
+    >
+      Proceed
+    </button>
+  </div>
+</div> -->
+<div class="seat-selection-container">
+  <h2>Select Your Seats</h2>
+
+  <div class="bus-layout">
+    <div class="seat-row" *ngFor="let row of busSeats">
+      <div
+        *ngFor="let seat of row"
+        [ngClass]="{
+          seat: !seat.aisle,
+          booked: seat.booked,
+          selected: seat.selected,
+          aisle: seat.aisle
+        }"
+        (click)="seat.aisle ? null : selectSeat(seat)"
+      >
+        {{ seat.aisle ? '' : seat.seatNumber }}
+      </div>
+    </div>
+  </div>
+
+  <div class="summary">
+    <p>Total Selected Seats: {{ selectedSeats.length }}</p>
+    <p>Total Price: ${{ totalPrice }}</p>
+    <button class="proceed-button" [disabled]="selectedSeats.length === 0" (click)="proceedToPassengerDetails()">
+      Proceed to Passenger Details
+    </button>
+  </div>
+</div>

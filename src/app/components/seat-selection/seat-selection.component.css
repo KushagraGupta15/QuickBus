@@ -1,0 +1,69 @@
+.seat-selection-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.bus-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 2px;
+  background-color: lightgray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.booked {
+  background-color: #dc3545 !important;
+  cursor: not-allowed;
+}
+
+.summary {
+  margin-top: 20px;
+}
+
+.proceed-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.proceed-button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+
+
+
+.selected {
+  background-color: green;
+}
+
+.aisle {
+  width: 20px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 2px;
+  background-color: transparent;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}

@@ -1,0 +1,71 @@
+<div class="passenger-info-container">
+  <h2>Passenger Information</h2>
+
+  <form [formGroup]="passengerForm"
+        (ngSubmit)="continueBooking()">
+          <div formArrayName="passengers">
+                  <div *ngFor="let passenger of passengers.controls; let i = index"
+                       class="passenger-block"
+                       [formGroupName]="i">
+                          <h3>Passenger {{ i + 1 }}</h3>
+
+                          <!-- Name Input -->
+                          <label for="name-{{ i }}">Full Name:</label>
+                          <input type="text"
+                                 id="name-{{ i }}"
+                                 formControlName="name"
+                                 required>
+
+                          <!-- Age Input -->
+                          <label for="age-{{ i }}">Age:</label>
+                          <input type="number"
+                                 id="age-{{ i }}"
+                                 formControlName="age"
+                                 required>
+
+                          <!-- Gender Selection -->
+                          <label for="gender-{{ i }}">Gender:</label>
+                          <select id="gender-{{ i }}"
+                                  formControlName="gender"
+                                  required>
+                                  <option value=""
+                                          disabled
+                                          selected>Select Gender</option>
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                  <option value="Other">Other</option>
+                          </select>
+
+                          <!-- Remove Passenger Button -->
+                          <button class="remove-btn"
+                                  type="button"
+                                  *ngIf="passengers.length > 1"
+                                  (click)="removePassenger(i)">Remove</button>
+                  </div>
+          </div>
+
+
+          <!-- Contact (Only for First Passenger) -->
+          <div>
+                  <label for="contact">Contact Number:</label>
+                  <input type="tel"
+                         id="contact"
+                         formControlName="contact"
+                         placeholder="Enter 10-digit number">
+                  <div *ngIf="passengerForm.get('contact')?.invalid && passengerForm.get('contact')?.touched">
+                          <small *ngIf="passengerForm.get('contact')?.errors?.['required']">Contact number is required.</small>
+                          <small *ngIf="passengerForm.get('contact')?.errors?.['pattern']">Enter a valid 10-digit phone number.</small>
+                  </div>
+          </div>
+
+          <!-- Add Passenger Button -->
+          <button type="button"
+                  class="add-btn"
+                  (click)="addPassenger()">+ Add Passenger</button>
+
+          <!-- Continue Button -->
+          <button type="submit"
+                  class="continue-btn"
+                  [disabled]="passengerForm.invalid">Continue</button>
+  </form>
+</div>

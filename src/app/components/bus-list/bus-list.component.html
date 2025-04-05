@@ -1,0 +1,35 @@
+<div class="bus-container">
+  <h1>Available Buses</h1>
+  <div class="bus-table">
+    <div class="bus-row bus-header">
+      <div>Bus Name</div>
+      <div>Type</div>
+      <div>Departure</div>
+      <div>Duration</div>
+      <div>Fare</div>
+      <div>Available Seats</div>
+      <div>Action</div>
+    </div>
+
+    <!-- <div class="bus-row" *ngFor="let bus of busList">
+      <div>{{ bus.busName }}</div>
+      <div>{{ bus.type }}</div>
+      <div>{{ bus.departure }}</div>
+      <div>{{ bus.duration }}</div>
+      <div>{{ bus.fare }}</div>
+      <div class="seat-count">{{ bus.availableSeats }}</div>
+      <div>
+        <button class="select-button" (click)="onSelectBus(bus)">Select Bus</button>
+      </div>
+    </div> -->
+    <div class="bus-row" *ngFor="let bus of busList">
+      <div>{{ bus.busName }} ({{ bus.type }})</div>
+      <div>Departure: {{ bus.departure }} | Duration: {{ bus.duration }}</div>
+      <div>Fare: ${{ bus.fare }}</div>
+      <div class="seat-count">Available Seats: {{ bus.availableSeats }}</div>
+      <div>
+        <button class="select-button" (click)="onSelectBus(bus)">Select</button>
+      </div>
+    </div>
+  </div>
+</div>

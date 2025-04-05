@@ -1,0 +1,86 @@
+.review-container {
+  max-width: 95%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #222; /* Dark Mode */
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Updated: Flexbox for full-width layout */
+.review-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 15px;
+  flex-wrap: wrap; /* Allows wrapping to take full width */
+  width: 100%;
+}
+
+/* Individual section styling */
+.section {
+  flex: 1 1 calc(33.33% - 15px); /* Ensures 3 sections per row */
+  min-width: 300px;
+  padding: 15px;
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(255, 255, 255, 0.2);
+  text-align: left;
+}
+
+.section h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 5px;
+}
+
+.section p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* Confirm button styling */
+.confirm-btn-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+button {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #e68900;
+}
+
+/* Responsive - Adjust layout for smaller screens */
+@media (max-width: 1200px) {
+  .section {
+    flex: 1 1 calc(50% - 15px); /* Two sections per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .review-content {
+    flex-direction: column; /* Stack sections in a column */
+  }
+
+  .section {
+    width: 100%; /* Full width on smaller screens */
+  }
+}

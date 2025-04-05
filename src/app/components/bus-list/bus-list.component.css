@@ -1,0 +1,137 @@
+.bus-container {
+  width: 90%;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  /* background: #fff; */
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 60px; /* Ensures content is not hidden under the navbar */
+}
+
+h1 {
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.bus-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bus-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgb(222, 218, 218);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  color: #241d1d;
+  font-weight: bold;
+}
+
+.bus-row:nth-child(even) {
+  background:  rgb(222, 218, 218);
+}
+
+.bus-row:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #818183, #403e4b);
+  color: white;
+}
+
+.bus-header {
+  font-weight: bold;
+  background-color: #222;
+  color: white;
+  border-radius: 8px;
+  padding: 15px;
+  text-transform: uppercase;
+}
+
+.bus-row div {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.select-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.seat-count {
+  color: red;
+  font-weight: bold;
+}
+
+.select-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.select-button:active {
+  background-color: #1e7e34;
+  transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bus-container {
+    margin-top: 80px; /* Adjusts for smaller screens */
+  }
+  .bus-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+  .bus-row div {
+    text-align: left;
+    width: 100%;
+    padding: 5px 0;
+  }
+  .bus-header {
+    display: none;
+  }
+  .select-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .bus-container {
+    width: 100%;
+    padding: 15px;
+    margin-top: 90px; /* Further adjustment for mobile screens */
+  }
+  h1 {
+    font-size: 20px;
+  }
+  .bus-row {
+    padding: 10px;
+  }
+  .bus-row div {
+    font-size: 14px;
+  }
+  .select-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

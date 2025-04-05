@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import ChatGPT Font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #121212;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Common Button Styles */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}

@@ -1,0 +1,51 @@
+<div class="review-container">
+  <h2>Review Your Ticket</h2>
+
+  <div class="review-content">
+    <!-- Route Details -->
+    <div class="section">
+      <h3>Route Details</h3>
+      <p>
+        <strong>From:</strong> {{ routeDetails.source }} → <strong>To:</strong>
+        {{ routeDetails.destination }}
+      </p>
+      <p><strong>Date:</strong> {{ routeDetails.date }}</p>
+    </div>
+
+    <!-- Bus Details -->
+    <div class="section">
+      <h3>Bus Details</h3>
+      <p><strong>Bus Name:</strong> {{ busDetails.busName }}</p>
+      <p><strong>Type:</strong> {{ busDetails.type }}</p>
+      <p><strong>Departure:</strong> {{ busDetails.departure }}</p>
+      <p><strong>Duration:</strong> {{ busDetails.duration }}</p>
+      <p><strong>Fare per seat:</strong> ${{ busDetails.fare }}</p>
+    </div>
+
+    <!-- Selected Seats -->
+    <div class="section">
+      <h3>Selected Seats</h3>
+      <p>{{ seatNumbers.join(", ") }}</p>
+      <p><strong>Total Fare:</strong> ${{ totalFare }}</p>
+    </div>
+
+    <!-- Passenger Details -->
+    <div class="section">
+      <h3>Passenger Information</h3>
+      <div
+        *ngFor="let passenger of passengerInfo.passengerDetails; let i = index"
+      >
+        <p>
+          <strong>Passenger {{ i + 1 }}:</strong> {{ passenger.name }},
+          {{ passenger.age }} yrs, {{ passenger.gender }}
+        </p>
+      </div>
+      <p><strong>Contact:</strong> {{ passengerInfo.contact }}</p>
+    </div>
+  </div>
+
+  <!-- Confirm Button -->
+  <div class="confirm-btn-container">
+    <button (click)="confirmBooking()">Continue & Confirm</button>
+  </div>
+</div>

@@ -12,10 +12,10 @@ import { BusService } from 'src/app/services/bus.service';
   styleUrls: ['./review-bus-ticket.component.css'],
 })
 export class ReviewBusTicketComponent implements OnInit {
-  routeDetails!: RouteDetails;
-  busDetails!: BusDetails;
-  selectedSeats!: SelectedSeats;
-  passengerInfo!: PassengerInfo;
+  routeDetails: RouteDetails;
+  busDetails: BusDetails;
+  selectedSeats: SelectedSeats;
+  passengerInfo: PassengerInfo;
   seatNumbers: number[] = [];
 
   constructor(private router: Router, private busService: BusService) {}
@@ -26,7 +26,7 @@ export class ReviewBusTicketComponent implements OnInit {
     this.routeDetails = this.busService.getRouteDetails() || {
       source: '',
       destination: '',
-      date: '',
+      date: new Date(),
     };
     this.busDetails = this.busService.getBusDetails() || {
       busName: '',
@@ -41,7 +41,7 @@ export class ReviewBusTicketComponent implements OnInit {
     };
     this.passengerInfo = this.busService.getPassengerInfo() || {
       passengerDetails: [],
-      contact: '',
+      contact: 0,
     };
 
     console.log('Route Details:', this.routeDetails);

@@ -16,7 +16,7 @@ export class SearchBusComponent implements OnInit {
     date: new Date(),
   };
 
-  searchForm!: FormGroup;
+  searchForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,

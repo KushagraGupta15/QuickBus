@@ -99,6 +99,13 @@
           "totalFare": 15
         }
       ]
+    },
+    {
+      "id": "547a",
+      "name": "Damini",
+      "email": "db@gmail.com",
+      "password": "123456",
+      "bookedBuses": []
     }
   ],
   "buses": [

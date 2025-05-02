@@ -65,3 +65,20 @@
 .auth-container a:hover {
   text-decoration: underline;
 }
+
+.auth-container small {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.auth-container input.ng-touched.ng-invalid {
+  border-color: red;
+  background-color: #ffe6e6;
+}
+
+.auth-container input.ng-touched.ng-valid {
+  border-color: #28a745;
+}

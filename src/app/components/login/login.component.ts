@@ -1,34 +1,49 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-  email: string = '';
-  password: string = '';
+export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
   private apiUrl = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
+  }
 
   login() {
-    if (!this.email || !this.password) {
-      alert('Please enter both email and password.');
+    if (this.loginForm.invalid) {
+      alert('Please enter valid email and password.');
       return;
     }
 
-    // Fetch users from JSON server
-    this.http.get<any[]>(this.apiUrl).subscribe(users => {
-      const user = users.find(u => u.email === this.email && u.password === this.password);
+    const { email, password } = this.loginForm.value;
+
+    this.http.get<any[]>(this.apiUrl).subscribe((users) => {
+      const user = users.find(
+        (u) => u.email === email && u.password === password
+      );
 
       if (user) {
         localStorage.setItem('loggedInUser', JSON.stringify(user));
         alert('Login successful!');
-        this.router.navigate(['/search']);
+        this.router.navigate(['/search']).then(() => {
+          window.location.reload();
+        });
       } else {
         alert('Invalid email or password.');
       }

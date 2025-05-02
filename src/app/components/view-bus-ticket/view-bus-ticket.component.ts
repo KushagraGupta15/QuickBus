@@ -23,7 +23,7 @@ export class ViewBusTicketComponent {
   constructor(private busService: BusService) { }
 
   ngOnInit() {
-    this.routeDetails = this.busService.getRouteDetails() || { source: '', destination: '', date: '' };
+    this.routeDetails = this.busService.getRouteDetails() || { source: '', destination: '', date: new Date() };
   
     const busDetails = this.busService.getBusDetails();
     if (!busDetails) {
@@ -33,7 +33,7 @@ export class ViewBusTicketComponent {
     this.busDetails = busDetails;
   
     this.selectedSeats = this.busService.getSelectedSeats() || { seatDetails: [] };
-    this.passengerInfo = this.busService.getPassengerInfo() || { passengerDetails: [], contact: '' };
+    this.passengerInfo = this.busService.getPassengerInfo() || { passengerDetails: [], contact: 0 };
   
     console.log('Route Details:', this.routeDetails);
     console.log('Bus Details:', this.busDetails);

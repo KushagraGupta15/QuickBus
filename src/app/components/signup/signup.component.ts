@@ -1,36 +1,54 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
 })
-export class SignupComponent {
-  name: string = '';
-  email: string = '';
-  password: string = '';
+export class SignupComponent implements OnInit{
+  signupForm: FormGroup;
+
   private apiUrl = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.signupForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
+  }
 
   signup() {
-    if (!this.name || !this.email || !this.password) {
-      alert('All fields are required');
+    if (!this.signupForm.valid) {
+      alert('Please fill in all fields correctly.');
       return;
     }
 
+    const { name, email, password } = this.signupForm.value;
     // Check if the email already exists
-    this.http.get<any[]>(this.apiUrl).subscribe(users => {
-      if (users.some(user => user.email === this.email)) {
+    this.http.get<any[]>(this.apiUrl).subscribe((users) => {
+      if (users.some((user) => user.email === email)) {
         alert('Email already registered. Please use another email.');
         return;
       }
 
       // Create new user object
-      const newUser = { name: this.name, email: this.email, password: this.password, bookedBuses: [] };
+      const newUser = {
+        name: name,
+        email: email,
+        password: password,
+        bookedBuses: [],
+      };
 
       // Save user to JSON server
       this.http.post(this.apiUrl, newUser).subscribe(() => {
